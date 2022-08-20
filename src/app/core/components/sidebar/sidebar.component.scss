@@ -1,0 +1,71 @@
+@import "style";
+
+.sidebar-wrapper {
+    width: 0;
+    height: 100vh;
+    opacity: 0;
+    background: #fefefe;
+    transition: all 0.5s ease;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    position: absolute;
+    top: 0;
+    left: -240px;
+    z-index: 5;
+
+    @include normal-screen {
+        width: 240px;
+        opacity: 1;
+        position: relative;
+        top: unset;
+        left: unset;
+    }
+
+    &.opened {
+        width: 240px;
+        opacity: 1;
+        left: 0;
+    }
+
+    .sidebar-logo {
+        img {
+            padding: .5rem;
+            border-radius: 50%;
+            box-shadow: -10px 10px 15px 0 rgba(169, 115, 255, 20%);
+        }
+    }
+
+    .sidebar-content {
+        padding-top: 40px;
+
+        ul {
+            li {
+                height: 50px;
+                margin-block: .5rem;
+                cursor: pointer;
+
+                &.active {
+                    box-shadow: 0 20px 40px 0 rgb(169 115 255 / 10%);
+
+                    i {
+                        color: $primary;
+                    }
+                }
+
+                &:first-child {
+                    margin-top: 0;
+                }
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+
+                i {
+                    color: $secondary;
+                }
+            }
+        }
+    }
+    
+}

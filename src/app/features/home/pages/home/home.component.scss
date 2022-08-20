@@ -1,0 +1,148 @@
+@import "style";
+
+.stories {
+    flex: 1;
+    overflow: auto hidden;
+    gap: 1.5rem;
+    max-width: 100vw;
+
+    &__item {
+        user-select: none;
+
+        button {
+            width: 64px;
+            outline: 0;
+        }
+
+        &-picture {
+            width: 64px;
+            height: 64px;
+            margin-bottom: 5px;
+            padding: 4px;
+            position: relative;
+            z-index: 1;
+
+            &::before {
+                content: "";
+                display: block;
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                top: 0;
+                border-radius: 50%;
+                z-index: -1;
+                background: rgba($secondary, 0.5);
+            }
+
+            img {
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+                pointer-events: none;
+                box-shadow: 0 0 0 2px #fff;
+            }
+        }
+
+        &-username {
+            width: 64px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+
+        &--active {
+            .stories__item-picture {
+                &::before {
+                    background: $primary
+                }
+            }
+        }
+
+        &-add {
+            .stories__item-picture {
+                &::after {
+                    content: "\2b";
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    top: 0;
+                    color: $white;
+                    z-index: 5;
+                    font-size: 32px;
+                    border-radius: 50%;
+                    margin: 4px;
+                    opacity: .75;
+                    background: $primary
+                }
+            }
+        }
+    }
+}
+
+.feeds-wrapper {
+    .feeds {
+        grid-template-columns: repeat(1, 1fr);
+        grid-auto-rows: minmax(auto, auto);
+        
+        @include small-screen {
+            grid-template-columns: repeat(auto-fill, minmax(48%, 49%));
+            grid-gap: 4% 2%;
+        }
+
+        &__each {
+            margin-top: 1.5rem;
+
+            &-photo {
+                border: 1px solid $white;
+                border-radius: 8px;
+                aspect-ratio: 3/2;
+                object-fit: cover;
+                border: 4px solid $white;
+            }
+        }
+    }
+}
+
+.suggestions-wrapper {
+    .suggestions {
+        &__each {
+            &_user {
+                img {
+                    border: 1.5px solid $white;
+                }
+            }
+
+            &_actions {
+                &-follow {
+                    min-width: 85px
+                }
+            }
+        }
+    }
+}
+
+.post-activities {
+    .activities {
+        &__each {
+            border: 2px solid $white;
+            height: 125px;
+
+            @include small-screen {
+                width: 50%;
+            }
+
+            @include large-screen {
+                width: 100%;
+            }
+
+            &-image {
+                border: 2px solid $white;
+                max-height: 100%;
+            }
+        }
+    }
+}

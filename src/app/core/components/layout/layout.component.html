@@ -1,0 +1,13 @@
+<main class="d-flex flex-grow-1">
+    <app-sidebar></app-sidebar>
+
+    <section class="d-flex flex-column flex-grow-1 w-100">
+        <div class="d-xl-none">
+            <app-navbar></app-navbar>
+        </div>
+
+        <section class="main-page d-flex flex-column flex-grow-1 position-relative">
+            <router-outlet></router-outlet>
+        </section>
+    </section>
+</main>

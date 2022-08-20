@@ -1,0 +1,12 @@
+@import "style";
+
+main {
+    height: 100vh;
+    overflow: hidden;
+
+    .main-page {
+        background-color: $page-bg;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+}

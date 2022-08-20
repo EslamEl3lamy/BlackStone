@@ -1,0 +1,36 @@
+<aside class="sidebar-wrapper d-flex flex-column h-100" [ngClass]="{'opened': isSidebarOpened}" (clickOutside)="$event ? sidebarToggle() : ''">
+    <a class="w-100 p-x pt-4 sidebar-logo d-flex align-items-end" [routerLink]="[ '/' ]">
+        <img src="assets/images/logo/cofeed.png" alt="Logo" width="40">
+
+        <h3 class="m-0 fw-bold font-20 text-primary m-inline-start-2">{{ 'Cofeed' }}</h3>
+    </a>
+
+    <div class="sidebar-content w-100 h-100">
+        <div class="w-100">
+            <h6 class="m-0 p-x fw-bold font-18 text-dark">{{ 'Menu' }}</h6>
+
+            <ul class="sidemenu mt-3 m-0 p-0">
+                <li class="d-flex align-items-center p-x" [ngClass]="{'active': sideMenuIndex === 0}" *ngFor="let sideMenu of sideMenus; let sideMenuIndex = index">
+                    <i class="fa-solid font-20 {{ sideMenu.sideMenuIcon }}"></i>
+                    <span class="text-dark font-18 m-inline-start-3">{{ sideMenu.sideMenuName}}</span>
+                </li>
+            </ul>
+
+            <div class="account mt-3 p-x">
+                <div class="d-flex align-items-center justify-content-between cursor-pointer">
+                    <h6 class="m-0 fw-bold font-18 text-dark">{{ 'Account' }}</h6>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+
+                <div class="account-details d-flex align-items-center mt-3 cursor-pointer">
+                    <img src="https://source.boringavatars.com/beam/35/Michael?colors=d4e5f5" alt="profile photo">
+
+                    <div class="d-flex flex-column m-inline-start-3">
+                        <h3 class="m-0 regular font-18">{{ 'Michael' }}</h3>
+                        <h6 class="m-0 regular font-14 text-middle">{{ '@michaelsco_' }}</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</aside>
